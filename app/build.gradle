@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    compileSdk 30
+    compileSdkVersion toolVersions.android.compileSdk
+    buildToolsVersion toolVersions.android.buildTools
 
     defaultConfig {
-        applicationId "com.folen.moviesbrowser"
-        minSdk 19
-        targetSdk 30
-        versionCode 1
-        versionName "1.0"
-
+        applicationId "com.folen.moviebrowser"
+        minSdkVersion toolVersions.android.minSdk
+        targetSdkVersion toolVersions.android.targetSdk
+        versionCode projectVersions.versionCode
+        versionName projectVersions.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -21,23 +21,20 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
+        developer {
+            initWith(release)
+            applicationIdSuffix ".dev"
+            debuggable true
+        }
     }
 }
 
 dependencies {
-
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.core:core-ktx:$libVersions.core"
+    implementation "androidx.appcompat:appcompat:$libVersions.appcompat"
+    implementation "androidx.constraintlayout:constraintlayout:$libVersions.constraintlayout"
+    implementation "com.google.android.material:material:$libVersions.material"
+    testImplementation "junit:junit:$libVersions.junit"
+    androidTestImplementation "androidx.test.ext:junit:$libVersions.extjunit"
 }
