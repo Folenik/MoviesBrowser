@@ -35,6 +35,11 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$libVersions.appcompat"
     implementation "androidx.constraintlayout:constraintlayout:$libVersions.constraintlayout"
     implementation "com.google.android.material:material:$libVersions.material"
+    implementation "com.squareup.retrofit2:retrofit:$libVersions.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$libVersions.gson"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$libVersions.coroutinescore"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$libVersions.coroutinesandroid"
+
     testImplementation "junit:junit:$libVersions.junit"
     androidTestImplementation "androidx.test.ext:junit:$libVersions.extjunit"
 }
