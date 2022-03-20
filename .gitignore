@@ -69,3 +69,4 @@ outTmp/
 /test.output
 /kotlin-native/dist
 kotlin-ide/
+/app/src/main/java/com/folen/moviesbrowser/utilities/ConstantValues.kt
